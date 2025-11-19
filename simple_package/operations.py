@@ -40,3 +40,17 @@ def multiply(a, b):
 def divide(a, b):
     """Divide one number by another."""
     return a / b
+
+if __name__ == "__main__":
+    print('Welcome to the Basic Online Calculator')
+    print('The following operations are available at the moment:')
+    operations = ['Addition', 'Subtraction', 'Multiplication', 'Division']
+    for i in range(len(operations)):
+        print(f"{i+1}. {operations[i]}")
+    op = int(input(f"Enter you choice(1-{i+1}): "))
+    if (op<1 or op>i+1):
+        print('Invalid input! The calculator will now close. Please try again.')
+        exit()
+    else:
+        print(op)
+    
