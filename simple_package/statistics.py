@@ -22,3 +22,24 @@
 ## 5) Also, do something and/or throw an exception/message if the
 ##    numpy and matplotlib packages are not installed.
 ##
+
+try:
+    import numpy as np
+    import matplotlib.pyplot as plt
+except:
+    print('Missing Packages: NumPy, MatplotLib')
+    exit()
+
+from simple_package import graphics
+
+def stats_summary(A):
+    if (type(A) != np.array):
+        print('np.array not given. Unable to calculate summay statistics')
+        exit()
+    mean = np.mean(A)
+    median = np.median(A)
+    sd = np.std(A)
+    return mean, median, sd
+
+
+
