@@ -44,13 +44,35 @@ def divide(a, b):
 if __name__ == "__main__":
     print('Welcome to the Basic Online Calculator')
     print('The following operations are available at the moment:')
-    operations = ['Addition', 'Subtraction', 'Multiplication', 'Division']
+    operations = {'Addition': add,
+                  'Subtraction': subtract,
+                  'Multiplication': multiply,
+                  'Division': divide}
+
     for i in range(len(operations)):
         print(f"{i+1}. {operations[i]}")
-    op = int(input(f"Enter you choice(1-{i+1}): "))
-    if (op<1 or op>i+1):
-        print('Invalid input! The calculator will now close. Please try again.')
-        exit()
-    else:
-        print(op)
+
+    # Display available options
+print("Available operations:")
+for operation in operations.keys():
+    print(f"  - {operation}")
+
+# Get user input
+user_choice = input("\nEnter operation: ").strip().lower()
+
+if user_choice in operations:
+    # Get numbers from user
+    try:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        
+        # Call the function using the dictionary
+        result = operations[user_choice](num1, num2)
+        print(f"Result: {result}")
+    except ValueError:
+        print("Please enter valid numbers!")
+else:
+    print("Invalid operation!")
+
+    
     
